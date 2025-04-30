@@ -2018,7 +2018,7 @@ Make sure to follow all the instructions while answering questions.
         const atis = fetch(`https://datis.clowd.io/api/${botMessageRef.toUpperCase()}`);
         await update(botMessageRef, {
           User: "[ATIS Bot]",
-          Message: ,
+          Message: 
           Date: Date.now(),
         });
       }
