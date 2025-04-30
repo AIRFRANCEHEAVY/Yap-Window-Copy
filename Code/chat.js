@@ -10,7 +10,7 @@
     EOD: "[EOD]",
     ADMIN: "[ADMIN]",
     SNAKE: "[Snake Game]",
-    ATIS: "[ATIS]",
+    ATIS: "[ATIS]"
   };
   const users = {};
   const email = auth.currentUser.email;
