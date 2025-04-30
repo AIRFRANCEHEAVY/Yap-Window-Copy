@@ -2014,13 +2014,14 @@ Make sure to follow all the instructions while answering questions.
           }
         }
       } else if (pureMessage.trim().toLowerCase().startsWith("/ATIS")) {
-          const botMessageRef = push(messagesRef);
-          const atis = fetch(`https://datis.clowd.io/api/${botMessageRef.toUpperCase()}`);
-          await update(botMessageRef, {
-            User: "[ATIS Bot]",
-            Message: ,
-            Date: Date.now(),
-          });
+        const botMessageRef = push(messagesRef);
+        const atis = fetch(`https://datis.clowd.io/api/${botMessageRef.toUpperCase()}`);
+        await update(botMessageRef, {
+          User: "[ATIS Bot]",
+          Message: ,
+          Date: Date.now(),
+        });
+      }
 
       } else {
         const newMessageRef = push(messagesRef);
