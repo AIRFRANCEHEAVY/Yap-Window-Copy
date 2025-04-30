@@ -10,7 +10,6 @@
     EOD: "[EOD]",
     ADMIN: "[ADMIN]",
     SNAKE: "[Snake Game]",
-    ATIS: "[ATIS Bot]"
   };
   const users = {};
   const email = auth.currentUser.email;
@@ -704,7 +703,7 @@
   async function getUsernameFromEmail(userEmail) {
     if (!userEmail) return "";
     if (
-      ["[AI]", "[EOD]", "[RNG]", "[ADMIN]", "[Snake Game]", "[ATIS Bot]"].includes(userEmail)
+      ["[AI]", "[EOD]", "[RNG]", "[ADMIN]", "[Snake Game]"].includes(userEmail)
     )
       return userEmail;
     const formattedEmail = userEmail.replace(/\./g, "*");
@@ -2013,16 +2012,14 @@ Make sure to follow all the instructions while answering questions.
             createSnakeGame();
           }
         }
-      } else if (pureMessage.trim().toLowerCase().startsWith("/ATIS")) {
+      } else if (pureMessage.trim().toLowerCase().startsWith("/insert_command")) {
         const botMessageRef = push(messagesRef);
         const atis = fetch(`https://datis.clowd.io/api/${botMessageRef.toUpperCase()}`);
         await update(botMessageRef, {
-          User: "[ATIS Bot]"
-          Message:
-          Date: Date.now()
+        User: "[ATIS Bot]"
+        Message: atis
+        Date: Date.now()
         });
-      }
-
       } else {
         const newMessageRef = push(messagesRef);
         await update(newMessageRef, {
