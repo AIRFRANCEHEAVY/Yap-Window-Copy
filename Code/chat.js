@@ -2013,7 +2013,13 @@ Make sure to follow all the instructions while answering questions.
           }
         }
       } else if (pureMessage.trim().toLowerCase().startsWith("/insert_command")) {
-        /* CODE HERE*/
+        const botMessageRef = push(messagesRef);
+        const atis = fetch(`https://datis.clowd.io/api/${botMessageRef.toUpperCase()}`);
+        await update(botMessageRef, {
+        User: "[ATIS Bot]"
+        Message:
+        Date: Date.now()
+        });
       } else {
         const newMessageRef = push(messagesRef);
         await update(newMessageRef, {
