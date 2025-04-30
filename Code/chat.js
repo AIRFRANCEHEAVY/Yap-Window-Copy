@@ -10,6 +10,7 @@
     EOD: "[EOD]",
     ADMIN: "[ADMIN]",
     SNAKE: "[Snake Game]",
+    ATIS: "[ATIS]",
   };
   const users = {};
   const email = auth.currentUser.email;
@@ -2012,11 +2013,11 @@ Make sure to follow all the instructions while answering questions.
             createSnakeGame();
           }
         }
-      } else if (pureMessage.trim().toLowerCase().startsWith("/insert_command")) {
+      } else if (pureMessage.trim().toLowerCase().startsWith("/atis")) {
         const botMessageRef = push(messagesRef);
         const atis = fetch(`https://datis.clowd.io/api/${botMessageRef.toUpperCase()}`);
         await update(botMessageRef, {
-        User: "[ATIS Bot]"
+        User: "[ATIS]"
         Message:
         Date: Date.now()
         });
